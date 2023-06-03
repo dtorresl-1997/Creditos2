@@ -6,9 +6,8 @@ public class AplMain {
 		// TODO Auto-generated method stub
 		
 		Controller c= new Controller();
-		123
+		
 
 	}
 
 }
-x

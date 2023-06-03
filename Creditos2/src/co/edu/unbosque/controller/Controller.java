@@ -13,6 +13,9 @@ public class Controller {
 	public ArbolBin arbol;
 	
 	private Nodo premisaIngresos;
+	private Nodo premisaMonto;
+	private Nodo premisaRiesgo;
+	
 	//public Nodo nodo;
 	//public Cliente cliente;
 
@@ -402,14 +405,14 @@ public class Controller {
 	}
 
 	public void decisionMonto() {
-	    int monto = view.leerDatoEntero("Ingrese los monto del cliente: ");
+	    int monto = view.leerDatoEntero("Ingrese los ingresos del cliente: ");
 
-	    if (!compararMonto(monto, arbol.raiz)) {
-	        view.mostrarInformacion("El cliente no cumple con el monto requerido y no es elegible para el crédito.");
-	        // Realizar las acciones correspondientes cuando el cliente no cumple con la edad requerida
+	    if (!compararMonto(monto, premisaMonto)) {
+	        view.mostrarInformacion("El cliente no cumple con los ingresos requeridos y no es elegible para el crédito.");
+	        // Realizar las acciones correspondientes cuando el cliente no cumple con los ingresos requeridos
 	    } else {
-	        view.mostrarInformacion("El cliente cumple con el monto y es elegible para el crédito.");
-	        // Realizar las acciones correspondientes cuando el cliente cumple con la edad requerida
+	        view.mostrarInformacion("El cliente cumple con los ingresos requeridos y es elegible para el crédito.");
+	        // Realizar las acciones correspondientes cuando el cliente cumple con los ingresos requeridos
 	    }
 	}
 	public boolean compararMonto(int monto, Nodo nodo) {
@@ -438,7 +441,7 @@ public class Controller {
 	public void decisionRiesgo() {
 	    int riesgo = view.leerDatoEntero("Ingrese los puntaje del cliente: ");
 
-	    if (!compararMonto(riesgo, arbol.raiz)) {
+	    if (!compararMonto(riesgo, premisaRiesgo)) {
 	        view.mostrarInformacion("El cliente no cumple con el puntaje requerido y no es elegible para el crédito.");
 	        // Realizar las acciones correspondientes cuando el cliente no cumple con la edad requerida
 	    } else {
