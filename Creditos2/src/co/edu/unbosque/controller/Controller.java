@@ -16,6 +16,8 @@ public class Controller {
 	private Nodo premisaMonto;
 	private Nodo premisaRiesgo;
 	
+	int monto=0;
+	
 	//public Nodo nodo;
 	//public Cliente cliente;
 
@@ -78,6 +80,7 @@ public class Controller {
 		definirIngresos();
 		definirMonto();
 		definirRiesgo();
+		
 	}
 	
 	public void decision() {
@@ -86,6 +89,8 @@ public class Controller {
 		decisionIngresos();
 		decisionMonto();
 		decisionRiesgo();
+		
+		view.mostrarInformacion("Su valor" + monto+ "Fue aprobado con Exito");
 		
 	}
 	
@@ -212,6 +217,8 @@ public class Controller {
 		
 	}
 	public void definirMonto() {
+		
+		
 		try {
 	        int monto = view.leerDatoEntero("Definicion de la premisa con el monto que pidio el usuario\n\n" 
 	        							+ "ingrese el monto a usar como base: ");
@@ -272,6 +279,7 @@ public class Controller {
 	        view.mostrarInformacion("Error en la inserción, inténtelo de nuevo");
 	        view.mostrarInformacion("\n\n");
 	    }
+		return monto;
 	}
 	public void definirRiesgo() {
 		try {
@@ -341,6 +349,7 @@ public class Controller {
 
 	    if (!compararEdad(edad, arbol.raiz)) {
 	        view.mostrarInformacion("El cliente no cumple con la edad requerida y no es elegible para el crédito.");
+	        System.exit(0);
 	        // Realizar las acciones correspondientes cuando el cliente no cumple con la edad requerida
 	    } else {
 	        view.mostrarInformacion("El cliente cumple con la edad requerida y es elegible para el crédito.");
@@ -375,6 +384,7 @@ public class Controller {
 
 	    if (!compararIngresos(ingresos, premisaIngresos)) {
 	        view.mostrarInformacion("El cliente no cumple con los ingresos requeridos y no es elegible para el crédito.");
+	        System.exit(0);
 	        // Realizar las acciones correspondientes cuando el cliente no cumple con los ingresos requeridos
 	    } else {
 	        view.mostrarInformacion("El cliente cumple con los ingresos requeridos y es elegible para el crédito.");
@@ -409,7 +419,7 @@ public class Controller {
 
 	    if (!compararMonto(monto, premisaMonto)) {
 	        view.mostrarInformacion("El cliente no cumple con el monto requerido y no es elegible para el crédito.");
-	        // Realizar las acciones correspondientes cuando el cliente no cumple con los ingresos requeridos
+	        System.exit(0);
 	    } else {
 	        view.mostrarInformacion("El cliente cumple con el monto requerido y es elegible para el crédito.");
 	        // Realizar las acciones correspondientes cuando el cliente cumple con los ingresos requeridos
@@ -443,6 +453,7 @@ public class Controller {
 
 	    if (!compararMonto(monto, premisaRiesgo)) {
 	        view.mostrarInformacion("El cliente no cumple con puntaje de riesgo requerido y no es elegible para el crédito.");
+	        System.exit(0);
 	        // Realizar las acciones correspondientes cuando el cliente no cumple con los ingresos requeridos
 	    } else {
 	        view.mostrarInformacion("El cliente cumple con puntaje de riesgo requerido y es elegible para el crédito.");
