@@ -16,7 +16,7 @@ public class Controller {
 	private Nodo premisaMonto;
 	private Nodo premisaRiesgo;
 	
-	int monto=0;
+	private int monto=0;
 	
 	//public Nodo nodo;
 	//public Cliente cliente;
@@ -90,7 +90,7 @@ public class Controller {
 		decisionMonto();
 		decisionRiesgo();
 		
-		view.mostrarInformacion("Su valor" + monto+ "Fue aprobado con Exito");
+		view.mostrarInformacion("Su valor: " + monto+ " Fue aprobado con Exito");
 		
 	}
 	
@@ -222,6 +222,7 @@ public class Controller {
 		try {
 	        int monto = view.leerDatoEntero("Definicion de la premisa con el monto que pidio el usuario\n\n" 
 	        							+ "ingrese el monto a usar como base: ");
+	        this.monto=monto;
 	        String seleccion = view.leerDatoString("A continuación, ingrese el operador lógico a usar:\n"
 	                							+ "a) Mayor que: >\n" 
 	                							+ "b) Menor que: <\n" 
@@ -279,7 +280,7 @@ public class Controller {
 	        view.mostrarInformacion("Error en la inserción, inténtelo de nuevo");
 	        view.mostrarInformacion("\n\n");
 	    }
-		return monto;
+		
 	}
 	public void definirRiesgo() {
 		try {
