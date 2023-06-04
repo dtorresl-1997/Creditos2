@@ -36,7 +36,7 @@ public class Controller {
 					+ "***  SISTEMA EXPERTO PARA OTORGAMIENTO DE CRÉDITOS FINANCIEROS  ***\n"
 					+ "****************************************************************************************\n" 
 					+ "Operaciones:\n"
-					+ "    a. Derfinir arbol de desicion.\n" 
+					+ "    a. Definir arbol de desicion.\n" 
 					+ "    b. Aplicar arbol de decision.\n" 
 					+ "    c. Salir.\n"
 					+ "\n"
