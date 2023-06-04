@@ -450,9 +450,9 @@ public class Controller {
 	}
 	
 	public void decisionRiesgo() {
-	    int monto = view.leerDatoEntero("Ingrese puntaje de riesgo del cliente: ");
+	    int riesgo = view.leerDatoEntero("Ingrese puntaje de riesgo del cliente: ");
 
-	    if (!compararMonto(monto, premisaRiesgo)) {
+	    if (!compararMonto(riesgo, premisaRiesgo)) {
 	        view.mostrarInformacion("El cliente no cumple con puntaje de riesgo requerido y no es elegible para el crédito.");
 	        System.exit(0);
 	        // Realizar las acciones correspondientes cuando el cliente no cumple con los ingresos requeridos
@@ -483,6 +483,7 @@ public class Controller {
 	    }
 	    return false;
 	}
+	
 	
 }
 
