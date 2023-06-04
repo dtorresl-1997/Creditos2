@@ -18,16 +18,13 @@ public class Controller {
 	
 	private int monto=0;
 	
-	//public Nodo nodo;
-	//public Cliente cliente;
+
 
 	public Controller() {
 
 		view = new View();
 		arbol = new ArbolBin();
-		//nodo= new Nodo();
-		//cliente = new Cliente();
-
+		
 		funcionar();
 	}
 
@@ -56,7 +53,7 @@ public class Controller {
 					view.mostrarInformacion("El arbol no esta definido");
 				}
 				else {
-					//insertarCliente();
+		
 					decision();
 				}
 				break;
@@ -127,7 +124,7 @@ public class Controller {
 		        Nodo premisaEdad = new Nodo(edad,operadorLogicoEdad);
 
 		        String seleccion2 = view.leerDatoString("Ahora se debe definir qué hacer en caso de que no se cumpla la condición establecida \n\n"
-		                + "Para la edad:\n" + "a) Cerrar el programa\n" + "b) Rechazar la transacción y reiniciar el programa\n");
+		                + "Para la edad:\n" + "a) Cerrar el programa\n" + "b) Continuar \n");
 
 		        switch (seleccion2) {
 		            case "a":
@@ -135,12 +132,12 @@ public class Controller {
 		                premisaEdad.setDerecha(decisionCerrar);
 		                break;
 		            case "b":
-		                Nodo decisionReiniciar = new Nodo(11, "Reiniciar");
+		                Nodo decisionReiniciar = new Nodo(11, "Continuar");
 		                premisaEdad.setDerecha(decisionReiniciar);
 		                break;
 		            default:
 		                view.mostrarInformacion("Ingrese un carácter válido");
-		                return; // Terminar el método si la selección es inválida
+		                return;
 		        }
 
 		        arbol.adicionar(premisaEdad);
@@ -190,7 +187,7 @@ public class Controller {
         
 
         String seleccion2 = view.leerDatoString("Ahora se debe definir qué hacer en caso de que no se cumpla la condición establecida \n\n"
-                + "Para los ingresos:\n" + "a) Cerrar el programa\n" + "b) Rechazar la transacción y reiniciar el programa\n");
+                + "Para los ingresos:\n" + "a) Cerrar el programa\n" + "b) Continuar \n");
 
         switch (seleccion2) {
             case "a":
@@ -198,12 +195,12 @@ public class Controller {
                 premisaIngresos.setDerecha(decisionCerrar);
                 break;
             case "b":
-                Nodo decisionReiniciar = new Nodo(11, "Reiniciar");
+                Nodo decisionReiniciar = new Nodo(11, "Continuar");
                 premisaIngresos.setDerecha(decisionReiniciar);
                 break;
             default:
                 view.mostrarInformacion("Ingrese un carácter válido");
-                return; // Terminar el método si la selección es inválida
+                return;
         }
 
         arbol.adicionar(premisaIngresos);
@@ -256,7 +253,7 @@ public class Controller {
 	        
 
 	        String seleccion2 = view.leerDatoString("Ahora se debe definir qué hacer en caso de que no se cumpla la condición establecida \n\n"
-	                + "Para el monto:\n" + "a) Cerrar el programa\n" + "b) Rechazar la transacción y reiniciar el programa\n");
+	                + "Para el monto:\n" + "a) Cerrar el programa\n" + "b) Continuar \n");
 
 	        switch (seleccion2) {
 	            case "a":
@@ -264,12 +261,12 @@ public class Controller {
 	                premisaMonto.setDerecha(decisionCerrar);
 	                break;
 	            case "b":
-	                Nodo decisionReiniciar = new Nodo(11, "Reiniciar");
+	                Nodo decisionReiniciar = new Nodo(11, "Continuar");
 	                premisaMonto.setDerecha(decisionReiniciar);
 	                break;
 	            default:
 	                view.mostrarInformacion("Ingrese un carácter válido");
-	                return; // Terminar el método si la selección es inválida
+	                return; 
 	        }
 
 	        arbol.adicionar(premisaMonto);
@@ -319,7 +316,7 @@ public class Controller {
 	        
 
 	        String seleccion2 = view.leerDatoString("Ahora se debe definir qué hacer en caso de que no se cumpla la condición establecida \n\n"
-	                + "Para el riesgo:\n" + "a) Cerrar el programa\n" + "b) Rechazar la transacción y reiniciar el programa\n");
+	                + "Para el riesgo:\n" + "a) Cerrar el programa\n" + "b) Continuar \n");
 
 	        switch (seleccion2) {
 	            case "a":
@@ -327,12 +324,12 @@ public class Controller {
 	                premisaMonto.setDerecha(decisionCerrar);
 	                break;
 	            case "b":
-	                Nodo decisionReiniciar = new Nodo(11, "Reiniciar");
+	                Nodo decisionReiniciar = new Nodo(11, "Continuar");
 	                premisaMonto.setDerecha(decisionReiniciar);
 	                break;
 	            default:
 	                view.mostrarInformacion("Ingrese un carácter válido");
-	                return; // Terminar el método si la selección es inválida
+	                return; 
 	        }
 
 	        arbol.adicionar(premisaMonto);
@@ -351,11 +348,10 @@ public class Controller {
 	    if (!compararEdad(edad, arbol.raiz)) {
 	        view.mostrarInformacion("El cliente no cumple con la edad requerida y no es elegible para el crédito.");
 	        System.exit(0);
-	        // Realizar las acciones correspondientes cuando el cliente no cumple con la edad requerida
+	    
 	    } else {
 	        view.mostrarInformacion("El cliente cumple con la edad requerida y es elegible para el crédito.");
-	        // Realizar las acciones correspondientes cuando el cliente cumple con la edad requerida
-	    }
+	          }
 	}
 	public boolean compararEdad(int edad, Nodo nodo) {
 	    if (nodo != null) {
@@ -373,7 +369,7 @@ public class Controller {
 	        } else if (operador.equals("!=")) {
 	            return edad != dato;
 	        } else {
-	            // Manejar un operador lógico inválido si es necesario
+	          
 	            return false;
 	        }
 	    }
@@ -386,10 +382,10 @@ public class Controller {
 	    if (!compararIngresos(ingresos, premisaIngresos)) {
 	        view.mostrarInformacion("El cliente no cumple con los ingresos requeridos y no es elegible para el crédito.");
 	        System.exit(0);
-	        // Realizar las acciones correspondientes cuando el cliente no cumple con los ingresos requeridos
+	       
 	    } else {
 	        view.mostrarInformacion("El cliente cumple con los ingresos requeridos y es elegible para el crédito.");
-	        // Realizar las acciones correspondientes cuando el cliente cumple con los ingresos requeridos
+	       
 	    }
 	}
 	public boolean compararIngresos(int ingresos, Nodo nodo) {
@@ -408,7 +404,7 @@ public class Controller {
 	        } else if (operador.equals("!=")) {
 	            return ingresos != dato;
 	        } else {
-	            // Manejar un operador lógico inválido si es necesario
+	            
 	            return false;
 	        }
 	    }
@@ -423,7 +419,7 @@ public class Controller {
 	        System.exit(0);
 	    } else {
 	        view.mostrarInformacion("El cliente cumple con el monto requerido y es elegible para el crédito.");
-	        // Realizar las acciones correspondientes cuando el cliente cumple con los ingresos requeridos
+	      
 	    }
 	}
 	public boolean compararMonto(int monto, Nodo nodo) {
@@ -442,7 +438,7 @@ public class Controller {
 	        } else if (operador.equals("!=")) {
 	            return monto != dato;
 	        } else {
-	            // Manejar un operador lógico inválido si es necesario
+	           
 	            return false;
 	        }
 	    }
@@ -455,10 +451,10 @@ public class Controller {
 	    if (!compararMonto(riesgo, premisaRiesgo)) {
 	        view.mostrarInformacion("El cliente no cumple con puntaje de riesgo requerido y no es elegible para el crédito.");
 	        System.exit(0);
-	        // Realizar las acciones correspondientes cuando el cliente no cumple con los ingresos requeridos
+	       
 	    } else {
 	        view.mostrarInformacion("El cliente cumple con puntaje de riesgo requerido y es elegible para el crédito.");
-	        // Realizar las acciones correspondientes cuando el cliente cumple con los ingresos requeridos
+	       
 	    }
 	}
 	public boolean compararRiesgo(int riesgo, Nodo nodo) {
@@ -477,7 +473,7 @@ public class Controller {
 	        } else if (operador.equals("!=")) {
 	            return riesgo != dato;
 	        } else {
-	            // Manejar un operador lógico inválido si es necesario
+	          
 	            return false;
 	        }
 	    }
